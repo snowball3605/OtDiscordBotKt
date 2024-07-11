@@ -5,7 +5,7 @@ Copyright © 2024 Snowball. All rights reserved.
 Please make sure to download the latest JAVA version
 
 ## How to build yourself?
-1. Download OtDiscordBotKt.rar
+1. Download OtDiscordBotKt.rar (https://github.com/snowball3605/OtDiscordBotKt/releases/latest)
 2. extract rar, you will get bat file and jar file
 3. double click bat file, you will get in-fo.yml file and plugins folder
 4. enter the discord bot token in your in-fo.yml
@@ -13,7 +13,7 @@ Please make sure to download the latest JAVA version
 6. Restart, Done
 
 ## How to make the plugin?
-1. Download OmniTech.rar
+1. Download OtDiscordBotKt.rar
 2. extract rar, you will get bat file and jar file
 3. double click bat file, you will get in-fo.yml file and plugins folder
 4. open the plugins folder
