@@ -22,6 +22,12 @@ Please make sure to download the latest JAVA version
 ## PlaceholderAPI
 Each plugin has different placeholderAPIs, please check the configuration file of each plugin
 
+## Plugins
+ * Bot-info:
+   * Command: /bot_info
+   * Function: Check this bot's join server and user count
+   * Placeholder: {server_count} : The number of servers the bot has joined, {user_count} : The number of user
+
 ## Initialization
 Automatic initialization without management
 
