@@ -1,0 +1,5 @@
+name: Bot_info
+author: snowball
+main: org.example.Bot_info
+depend:
+  - Nothing

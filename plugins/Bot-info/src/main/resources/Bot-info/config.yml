@@ -1,0 +1,9 @@
+
+Custom_information: false
+
+Title: "Bot-info"
+Description: "Server count : {server_count} \n User count : {user_count}"
+
+# Placeholder:
+# {server_count} : The number of servers the bot has joined
+# {user_count} : The number of user
