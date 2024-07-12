@@ -3,19 +3,21 @@ package org.example
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
 import org.example.Interface.I_Plugin
+import org.example.Logger.Color
 import org.example.loader.Config
 import org.slf4j.LoggerFactory
 import org.yaml.snakeyaml.Yaml
 import java.io.File
 import java.io.InputStream
 import java.lang.reflect.Method
-import java.net.URL
 import java.net.URLClassLoader
-import java.util.concurrent.Executors
 import java.util.jar.JarFile
 
 fun main() {
+    ExtractResource.extract_resource("log/record.log")
     ExtractResource.extract_resource("config.yml")
+    ExtractResource.extract_resource("plugins/in-fo.yml")
+    ExtractResource.extract_resource("plugins/I_Plugin.java")
     Main(Get_Config.path_Yaml("config.yml", "token")).main()
 }
 
@@ -41,11 +43,11 @@ class Main(private val token: String?) {
 
         fun loadplugin() {
             val logger = LoggerFactory.getLogger(Main::class.java)
-            logger.warn("loaded plugins")
+            logger.info(Color.COLOR_GREEN_TEXT + "loaded plugins" + Color.COLOR_RESET_TEXT)
             val done: Int = 0
             val fail: Int = 0
             if (File("plugins").exists()) {
-                logger.warn("Plugins directory does not exist! Reloading....")
+                logger.info(Color.COLOR_RED_TEXT + "Plugins directory does not exist! Reloading...." + Color.COLOR_RESET_TEXT)
                 ExtractResource.extract_resource("plugins/README.md")
             }
             for (file: File in File("plugins").listFiles()) {
@@ -61,7 +63,7 @@ class Main(private val token: String?) {
                                 val instance: Any? = pluginsClass.getDeclaredConstructor().newInstance()
                                 val method: Method = pluginsClass.getDeclaredMethod("onEnable", JDA::class.java)
                                 method.invoke(instance, jda)
-                                logger.warn("Successfully loaded plugin: ${config.name}")
+                                logger.info(Color.COLOR_GREEN_TEXT + "Successfully loaded plugin: ${config.name}" + Color.COLOR_RESET_TEXT)
                             }
                         }
                     } catch (e: Exception) {
@@ -69,7 +71,7 @@ class Main(private val token: String?) {
                     }
                 }
         }
-            logger.warn("Successfully loaded $done plugin(s)")
-            logger.warn("Failed loaded $fail plugin(s)")
+            logger.info(Color.COLOR_GREEN_TEXT + "Successfully loaded $done plugin(s)" + Color.COLOR_RESET_TEXT)
+            logger.info(Color.COLOR_RED_TEXT + "Failed loaded $fail plugin(s)" + Color.COLOR_RESET_TEXT)
     }
 }
